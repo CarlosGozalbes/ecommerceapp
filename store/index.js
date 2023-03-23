@@ -4,9 +4,7 @@ import thunk from "redux-thunk"
 import storage from "redux-persist/lib/storage"
 import { persistReducer } from "redux-persist"
 import cart from "./cartSlice"
-const reducers=combineReducers({
-cart
-})
+const reducers=combineReducers({cart})
 
 const config = {
     key:"root",
