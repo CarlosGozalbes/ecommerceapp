@@ -4,10 +4,12 @@ import UserMenu from "./UserMenu";
 import {MdSecurity} from "react-icons/md";
 import { BsSuitHeart } from "react-icons/bs";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 import { RiAccountPinCircleLine, RiArrowDropDownFill } from "react-icons/ri";
 import Link from "next/link";
-export default function Top() {
-  const [loggedIn, setLoggedIn] = useState(true)
+export default function Top({country}) {
+
+  const { data: session } = useSession();
   const [visible, setVisible] = useState(false)
     return (
       <div className={styles.top}>
@@ -16,11 +18,8 @@ export default function Top() {
           <ul className={styles.top__list}>
             <li className={styles.li}>
               {" "}
-              <img
-                src="https://img2.freepng.es/20180320/zuw/kisspng-flag-of-spain-iberian-peninsula-computer-icons-spa-free-spain-flag-svg-5ab169262291d9.5791572515215762301416.jpg"
-                alt="bandera pais"
-              />{" "}
-              <span>España / eur</span>{" "}
+              <img src={country.flag} alt="bandera pais" />{" "}
+              <span>{country.name} / eur</span>{" "}
             </li>
             <li className={styles.li}>
               <MdSecurity />
@@ -43,11 +42,11 @@ export default function Top() {
               onMouseOver={() => setVisible(true)}
               onMouseLeave={() => setVisible(false)}
             >
-              {loggedIn ? (
+              {session ? (
                 <li className={styles.li}>
                   <div className={styles.flex}>
-                    <img src="https://i.pravatar.cc/30" />
-                    <span>Carlo</span>
+                    <img src={session.user.image} />
+                    <span>{session.user.name}</span>
                     <RiArrowDropDownFill />
                   </div>
                 </li>
@@ -60,7 +59,7 @@ export default function Top() {
                   </div>
                 </li>
               )}
-              {visible && <UserMenu loggedIn={loggedIn} />}
+              {visible && <UserMenu session={session} />}
             </li>
           </ul>
         </div>

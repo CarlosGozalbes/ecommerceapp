@@ -34,7 +34,7 @@ export default function NewsLetter() {
         />
         <button
           className={styles.btn_primary}
-          disbaled={loading === true}
+          disabled={loading ? true:false}
           style={{ cursor: `${loading ? "not-allowed" : ""}` }}
           onClick={() => subscribe()}
         >
