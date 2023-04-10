@@ -17,7 +17,7 @@ export default function product({ product, related }) {
   const [activeImg, setActiveImg] = useState("");
   const country = {
     name: "Spain",
-    flag: "../../public/images/banderaEspaña.png",
+    flag: "https://w7.pngwing.com/pngs/288/791/png-transparent-flag-of-spain-flag-of-spain-flag-of-the-united-states-national-flag-spain-flags-icon-miscellaneous-flag-spanish-thumbnail.png",
   };
   return (
     <>

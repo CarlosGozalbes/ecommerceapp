@@ -1,5 +1,5 @@
 
-
+import Link from "next/link";
 import { simillar_products } from "../../../data/products";
 import styles from "./styles.module.scss";
 import { useRef, useState } from "react";

@@ -14,7 +14,7 @@ import {
   women_shoes,
   women_swiper,
 } from "../data/home";
-import ProductsSwiper from "@/components/productSwiper";
+import ProductsSwiper from "@/components/productsSwiper";
 import { useMediaQuery } from "react-responsive";
 import Category from "@/components/home/category";
 import { useSession, signIn, signOut } from "next-auth/react";
