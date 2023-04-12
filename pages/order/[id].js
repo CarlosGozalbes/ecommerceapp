@@ -28,7 +28,7 @@ export default function order({
   stripe_public_key,
 }) {
   const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
-  const [dispatch] = useReducer(reducer, {
+  const [dispatch] = (reducer, {
     loading: true,
     error: "",
     success: "",
@@ -43,7 +43,7 @@ export default function order({
         type: "resetOptions",
         value: {
           "client-id": paypal_client_id,
-          currency: "USD",
+          currency: "EUR",
         },
       });
       paypalDispatch({
@@ -140,10 +140,10 @@ export default function order({
                       <img src={product.color.image} alt="" /> / {product.size}
                     </div>
                     <div className={styles.product__infos_priceQty}>
-                      {product.price}$ x {product.qty}
+                      {product.price}€ x {product.qty}
                     </div>
                     <div className={styles.product__infos_total}>
-                      {product.price * product.qty}$
+                      {product.price * product.qty}€
                     </div>
                   </div>
                 </div>
@@ -153,7 +153,7 @@ export default function order({
                   <>
                     <div className={styles.order__products_total_sub}>
                       <span>Subtotal</span>
-                      <span>{orderData.totalBeforeDiscount}$</span>
+                      <span>{orderData.totalBeforeDiscount}€</span>
                     </div>
                     <div className={styles.order__products_total_sub}>
                       <span>
@@ -164,31 +164,31 @@ export default function order({
                         {(
                           orderData.totalBeforeDiscount - orderData.total
                         ).toFixed(2)}
-                        $
+                        €
                       </span>
                     </div>
                     <div className={styles.order__products_total_sub}>
                       <span>Tax price</span>
-                      <span>+{orderData.taxPrice}$</span>
+                      <span>+{orderData.taxPrice}€</span>
                     </div>
                     <div
                       className={`${styles.order__products_total_sub} ${styles.bordertop}`}
                     >
                       <span>TOTAL TO PAY</span>
-                      <b>{orderData.total}$</b>
+                      <b>{orderData.total}€</b>
                     </div>
                   </>
                 ) : (
                   <>
                     <div className={styles.order__products_total_sub}>
                       <span>Tax price</span>
-                      <span>+{orderData.taxPrice}$</span>
+                      <span>+{orderData.taxPrice}€</span>
                     </div>
                     <div
                       className={`${styles.order__products_total_sub} ${styles.bordertop}`}
                     >
                       <span>TOTAL TO PAY</span>
-                      <b>{orderData.total}$</b>
+                      <b>{orderData.total}€</b>
                     </div>
                   </>
                 )}
