@@ -76,7 +76,7 @@ export default function Infos({ product, setActiveImg }) {
     }
   };
   ///---------------------------------
-  const handleWishlist = async () => {
+  const  handleWishlist = async () => {
     try {
       if (!session) {
         return signIn();
