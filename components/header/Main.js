@@ -5,10 +5,20 @@ import { FaOpencart } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useRouter } from "next/router";
-export default function Main() {
-     const router = useRouter();
-     const [query, setQuery] = useState(router.query.search || "");
-     const { cart } = useSelector((state) => ({ ...state }));
+export default function Main({ searchHandler }) {
+  const router = useRouter();
+  const [query, setQuery] = useState(router.query.search || "");
+  const { cart } = useSelector((state) => ({ ...state }));
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (router.pathname !== "/browse") {
+      if (query.length > 1) {
+        router.push(`/browse?search=${query}`);
+      }
+    } else {
+      searchHandler(query);
+    }
+  };
   return (
     <div className={styles.main}>
       <div className={styles.main__container}>
@@ -17,7 +27,7 @@ export default function Main() {
             <img src="../../../logo.png" alt="" />
           </div>
         </Link>
-        <form onSubmit={(e) => {}} className={styles.search}>
+        <form onSubmit={(e) => handleSearch(e)} className={styles.search}>
           <input
             type="text"
             placeholder="Search..."

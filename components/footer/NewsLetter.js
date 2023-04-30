@@ -7,7 +7,7 @@ export default function NewsLetter() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
- /*  const subscribe = async () => {
+  const subscribe = async () => {
     setSuccess("");
     setError("");
     try {
@@ -21,7 +21,7 @@ export default function NewsLetter() {
       setLoading(false);
       setError(error.response.data.message);
     }
-  }; */
+  };
   return (
     <div className={styles.footer__newsletter}>
       <h3>SIGN UP FOR OUR NEWSLETTER</h3>
