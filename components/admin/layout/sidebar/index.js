@@ -60,42 +60,42 @@ export default function Sidebar() {
         <ul className={styles.sidebar__list}>
           <li className={route == undefined ? styles.active : ""}>
             <Link href="/admin/dashboard">
-              <a>
+              
                 <MdSpaceDashboard />
                 <span className={styles.show}>Dashboard</span>
-              </a>
+              
             </Link>
           </li>
           <li className={route == "sales" ? styles.active : ""}>
             <Link href="/admin/dashboard/sales">
-              <a>
+              
                 <FcSalesPerformance />
                 <span className={styles.show}>Sales</span>
-              </a>
+              
             </Link>
           </li>
           <li className={route == "orders" ? styles.active : ""}>
             <Link href="/admin/dashboard/orders">
-              <a>
+             
                 <IoListCircleSharp />
                 <span className={styles.show}>Orders</span>
-              </a>
+            
             </Link>
           </li>
           <li className={route == "users" ? styles.active : ""}>
             <Link href="/admin/dashboard/users">
-              <a>
+              
                 <ImUsers />
                 <span className={styles.show}>Users</span>
-              </a>
+              
             </Link>
           </li>
           <li className={route == "messages" ? styles.active : ""}>
             <Link href="/admin/dashboard/messages">
-              <a>
+              
                 <AiFillMessage />
                 <span className={styles.show}>Messages</span>
-              </a>
+              
             </Link>
           </li>
         </ul>
@@ -106,18 +106,18 @@ export default function Sidebar() {
           <ul className={styles.sidebar__list}>
             <li className={route == "product/all" ? styles.active : ""}>
               <Link href="/admin/dashboard/product/all">
-                <a>
+                
                   <FaThList />
                   <span className={styles.show}>All Products</span>
-                </a>
+                
               </Link>
             </li>
             <li className={route == "product/create" ? styles.active : ""}>
               <Link href="/admin/dashboard/product/create">
-                <a>
+                
                   <BsPatchPlus />
                   <span className={styles.show}>Create Product</span>
-                </a>
+                
               </Link>
             </li>
           </ul>
@@ -129,20 +129,20 @@ export default function Sidebar() {
           <ul className={styles.sidebar__list}>
             <li className={route == "categories" ? styles.active : ""}>
               <Link href="/admin/dashboard/categories">
-                <a>
+                
                   <MdOutlineCategory />
                   <span className={styles.show}>Categories</span>
-                </a>
+                
               </Link>
             </li>
             <li className={route == "subCategories" ? styles.active : ""}>
               <Link href="/admin/dashboard/subCategories">
-                <a>
+                
                   <div style={{ transform: "rotate(180deg)" }}>
                     <MdOutlineCategory />
                   </div>
                   <span className={styles.show}>Sub-Categories</span>
-                </a>
+                
               </Link>
             </li>
           </ul>
@@ -154,10 +154,10 @@ export default function Sidebar() {
           <ul className={styles.sidebar__list}>
             <li className={route == "coupons" ? styles.active : ""}>
               <Link href="/admin/dashboard/coupons">
-                <a>
+                
                   <RiCoupon3Fill />
                   <span className={styles.show}>Coupons</span>
-                </a>
+               
               </Link>
             </li>
           </ul>
@@ -170,30 +170,30 @@ export default function Sidebar() {
           >
             <li>
               <Link href="">
-                <a>
+                
                   <RiSettingsLine />
-                </a>
+                
               </Link>
             </li>
             <li>
               <Link href="">
-                <a>
+               
                   <IoNotificationsSharp />
-                </a>
+                
               </Link>
             </li>
             <li>
               <Link href="">
-                <a>
+                
                   <AiFillMessage />
-                </a>
+                
               </Link>
             </li>
             <li>
               <Link href="">
-                <a>
+                
                   <RiLogoutCircleFill />
-                </a>
+                
               </Link>
             </li>
           </ul>

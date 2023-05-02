@@ -17,9 +17,9 @@ import { showDialog } from "../../../../store/DialogSlice";
 import Images from "../../../../components/admin/createProduct/images";
 import Colors from "../../../../components/admin/createProduct/colors";
 import Style from "../../../../components/admin/createProduct/style";
-import Sizes from "../../../../components/admin/createProduct/style/Sizes";
-import Details from "../../../../components/admin/createProduct/style/Details";
-import Questions from "../../../../components/admin/createProduct/style/Questions";
+import Sizes from "../../../../components/admin/createProduct/clickToAdd/Sizes";
+import Details from "../../../../components/admin/createProduct/clickToAdd/Details";
+import Questions from "../../../../components/admin/createProduct/clickToAdd/Questions";
 import { validateCreateProduct } from "../../../../utils/validation";
 import dataURItoBlob from "../../../../utils/dataURItoBlob";
 import { uploadImages } from "../../../../requests/upload";
@@ -85,7 +85,10 @@ export default function create({ parents, categories }) {
         });
       }
     };
-    getParentData();
+    if (product.parent) {
+      getParentData();
+    }
+    
   }, [product.parent]);
   useEffect(() => {
     async function getSubs() {
@@ -133,8 +136,8 @@ export default function create({ parents, categories }) {
       );
     }
   };
-  const uploaded_images = [];
-  const style_img = "";
+  let uploaded_images = [];
+  let style_img = "";
   const createProductHandler = async () => {
     setLoading(true);
     if (images) {
@@ -318,9 +321,9 @@ export default function create({ parents, categories }) {
               name="imageDescInputFile"
               header="Product Description Images"
               text="Add images"
-              images={description_images}
-              setImages={setDescriptionImages}
-              setColorImage={setColorImage}
+              imagletption_images}
+              setIletDescriptionImages}
+              setClet{setColorImage}
             />
            
        
@@ -328,7 +331,7 @@ export default function create({ parents, categories }) {
             */}
             <button
               className={`${styles.btn} ${styles.btn__primary} ${styles.submit_btn}`}
-              type="submit"
+              typelet
             >
               Create Product
             </button>
