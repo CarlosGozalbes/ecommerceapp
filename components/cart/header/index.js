@@ -1,28 +1,23 @@
 import styles from "./styles.module.scss";
-import { useState, useEffect } from "react";
-import { compareArrays } from "../../../utils/arrays_utils";
-export default function CartHeader({ cartItems, selected, setSelected }) {
-  const [active, setActive] = useState();
-  useEffect(() => {
-    const check = compareArrays(cartItems, selected);
-    setActive(check);
-  }, [selected]);
-  const handleSelect = () => {
-    if (selected.length !== cartItems.length) {
-      setSelected(cartItems);
-    } else {
-      setSelected([]);
-    }
-  };
-
+import Link from "next/link";
+import { MdPlayArrow } from "react-icons/md";
+export default function Header() {
   return (
-    <div className={`${styles.cart__header} ${styles.card}`}>
-      <h1>Item Summary({cartItems.length})</h1>
-      <div className={styles.flex} onClick={() => handleSelect()}>
-        <div
-          className={`${styles.checkbox} ${active ? styles.active : ""}`}
-        ></div>
-        <span>Select all items</span>
+    <div className={styles.header}>
+      <div className={styles.header__container}>
+        <div className={styles.header__left}>
+          <Link href="/">
+            <img src="../../../logo.png" alt="" />
+          </Link>
+        </div>
+        <div className={styles.header__right}>
+          <Link href="/browse">
+            
+              Continue Shopping
+              <MdPlayArrow />
+            
+          </Link>
+        </div>
       </div>
     </div>
   );

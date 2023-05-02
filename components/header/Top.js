@@ -18,8 +18,8 @@ export default function Top({country}) {
           <ul className={styles.top__list}>
             <li className={styles.li}>
               {" "}
-              <img src={country.flag} alt="bandera pais" />{" "}
-              <span>{country.name} / eur</span>{" "}
+              <img src={country?.flag} alt="bandera pais" />{" "}
+              <span>{country?.name} / eur</span>{" "}
             </li>
             <li className={styles.li}>
               <MdSecurity />

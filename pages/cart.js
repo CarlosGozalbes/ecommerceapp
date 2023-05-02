@@ -4,7 +4,7 @@ import Empty from "../components/cart/empty";
 import Header from "../components/cart/header";
 import Product from "../components/cart/product";
 import styles from "../styles/cart.module.scss";
-import { updateCart,emptyCart } from "../store/cartSlice";
+import { updateCart } from "../store/cartSlice";
 import CartHeader from "../components/cart/cartHeader";
 import Checkout from "../components/cart/checkout";
 import PaymentMethods from "../components/cart/paymentMethods";
@@ -23,17 +23,6 @@ export default function cart() {
   const [shippingFee, setShippingFee] = useState(0);
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
-  useEffect(()=>{
-    const update = async ()=> {
-      const {data}=await axios.post("/api/updateCart",{
-        products:cart.cartItems
-      })
-      dispatch(updateCart(data))
-    }
-    if (cart.cartItems.length>0) {
-      update()
-    }
-  })
   useEffect(() => {
     setShippingFee(
       selected.reduce((a, c) => a + Number(c.shipping), 0).toFixed(2)

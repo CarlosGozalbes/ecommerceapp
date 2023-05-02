@@ -28,7 +28,7 @@ export default function order({
   stripe_public_key,
 }) {
   const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
-  const [dispatch] = (reducer, {
+  const [dispatch] = useReducer(reducer, {
     loading: true,
     error: "",
     success: "",

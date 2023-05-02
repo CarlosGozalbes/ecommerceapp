@@ -4,7 +4,7 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import "yup-phone";
 import ShippingInput from "../../inputs/shippingInput";
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+
 import { countries } from "../../../data/countries";
 import SingularSelect from "../../selects/SingularSelect";
 import {
@@ -18,7 +18,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { IoMdArrowDropupCircle } from "react-icons/io";
 import { AiOutlinePlus } from "react-icons/ai";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
-import SelectInput from "@mui/material/Select/SelectInput";
+
 const initialValues = {
   firstName: "",
   lastName: "",
@@ -44,6 +44,7 @@ export default function Shipping({ user, addresses, setAddresses, profile }) {
     address2,
     country,
   } = shipping;
+  const phoneRegExp = /\d{9}/;
   const validate = Yup.object({
     firstName: Yup.string()
       .required("First name is required.")
@@ -55,7 +56,7 @@ export default function Shipping({ user, addresses, setAddresses, profile }) {
       .max(20, "Last name must be less than 20 characters long."),
     phoneNumber: Yup.string()
       .required("Phone number is required.")
-      .phone()
+      .matches(phoneRegExp, "Phone number not valid")
       .min(3, "Phone number must be atleast 3 characters long.")
       .max(30, "Phone number must be less than 20 characters long."),
     state: Yup.string()
@@ -103,7 +104,7 @@ export default function Shipping({ user, addresses, setAddresses, profile }) {
         </div>
       )}
       <div className={styles.addresses}>
-        {addresses.map((address) => (
+        {addresses && addresses.map((address) => (
           <div style={{ position: "relative" }}>
             <div
               className={styles.address__delete}

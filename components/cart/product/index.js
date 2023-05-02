@@ -44,7 +44,7 @@ export default function Product({ product, selected, setSelected }) {
       {product.quantity < 1 && <div className={styles.blur}></div>}
       <div className={styles.product__header}>
         <img src="../../../images/store.webp" alt="" />
-      Aliexpress Store
+        Aliexpress
       </div>
       <div className={styles.product__image}>
         <div

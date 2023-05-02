@@ -1,6 +1,6 @@
 export const compareArrays = (array1, array2) => {
   if (array1.length !== array2.length) return false;
-  const neww = (object) =>
+  const neww = (object) => 
     JSON.stringify(
       Object.keys(object)
         .sort()

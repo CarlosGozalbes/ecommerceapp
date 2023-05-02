@@ -206,7 +206,7 @@ export default function Browse({
           <div className={styles.browse__tags}>
             {categories.map((c) => (
               <Link href="" key={c._id}>
-                <a>{c.name}</a>
+                {c.name}
               </Link>
             ))}
           </div>

@@ -13,11 +13,11 @@ export default function Empty() {
         </button>
       )}
       <Link href="/browse">
-        <a>
+        
           <button className={`${styles.empty__btn} ${styles.empty__btn_v2}`}>
             SHOP NOW
           </button>
-        </a>
+        
       </Link>
     </div>
   );

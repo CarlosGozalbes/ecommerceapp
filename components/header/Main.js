@@ -41,7 +41,7 @@ export default function Main({ searchHandler }) {
         <Link href="/cart">
           <div className={styles.cart}>
             <FaOpencart />
-            <span>{cart.length || "0"}</span>
+            <span>{cart.cartItems.length || "0"}</span>
           </div>
         </Link>
       </div>
